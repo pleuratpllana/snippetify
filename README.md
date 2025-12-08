@@ -1,4 +1,4 @@
-# Code Snippet Library
+# Snippetify
 
 A personal web app to store, organize, and quickly access my code snippets. Built to help myself save reusable code, experiment with solutions, and maintain a personal library of practical, ready-to-use programming examples.
 
