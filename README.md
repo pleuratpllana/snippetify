@@ -1,28 +1,44 @@
 # Snippetify
+A personal web app to save, organize, and quickly access reusable code snippets.
 
-A personal web app to store, organize, and quickly access my code snippets. Built to help myself save reusable code, experiment with solutions, and maintain a personal library of practical, ready-to-use programming examples.
+Snippetify helps developers maintain a personal library of practical, ready-to-use programming examples. It’s designed for easy snippet management, experimentation, and fast retrieval, all in a smooth, responsive interface.
 
-## Features (v1.0)
+**Free forever. No plans or expiring trials.**
 
-- **Add, edit, and delete snippets** – Create new code snippets, update them, or remove ones you no longer need.
-- **Organize snippets in folders** – Save snippets in separate folders for better organization.
-- **Drag-and-drop cards** – Rearrange snippets easily using a drag-and-drop interface.
-- **Search functionality** – Quickly find snippets by title, content, or tags.
-- **Syntax highlighting** – Readable formatting for multiple programming languages.
-- **Light/Dark mode toggle** – Switch between themes with a smooth UI experience.
-- **Mobile-friendly design** – Includes a bottom navigation for a native app-like feel on mobile devices.
-- **AI code generation (future)** – Integration with Google AI Gemini to interactively generate code snippets and save them directly in folders.
+## Why Snippetify?
+Keeping code snippets organized can save hours of repetitive work. Snippetify gives you a single, structured space to store your reusable code, experiment with solutions, and quickly find what you need, whether you’re on desktop or mobile.
+
+## Features
+
+### Snippet Management
+- Add, edit, and delete snippets effortlessly
+- Organize snippets in folders for clarity
+- Drag-and-drop interface to rearrange snippet cards
+- Powerful search by title, content, or tags
+
+### Code Readability & UI
+- Syntax highlighting for multiple programming languages
+- Light and dark mode toggle for comfortable coding sessions
+- Mobile-friendly design with bottom navigation for native app feel
+
+### Future Enhancements
+- AI-powered code generation using Google AI Gemini
+- Save generated code directly to folders for instant reuse
 
 ## Tech Stack
-
-- **Frontend:** React (functional components, hooks)
-- **Styling:** Tailwind CSS
-- **Drag-and-drop library:** [React Beautiful DnD](https://github.com/atlassian/react-beautiful-dnd)
-- **Database:** Supabase (secure snippet storage)
-- **Optional tools:** Local storage for quick testing during development
+- **React** – Functional components with hooks for modern architecture
+- **Tailwind CSS** – Utility-first responsive styling
+- **React Beautiful DnD** – Smooth drag-and-drop snippet arrangement
+- **Supabase** – Secure storage and retrieval of snippets
+- **Optional** – Local storage for fast testing during development
 
 ## Project Status
+- Version: v1.0
+- Currently in testing and refinement
+- Features may expand in future releases
 
-- Version: **v1.0**
-- Currently in testing and polishing phase
-- Features may be refined or expanded in future versions
+## Getting Started
+
+### Clone the repository
+```bash
+git clone https://github.com/your-username/snippetify.git
