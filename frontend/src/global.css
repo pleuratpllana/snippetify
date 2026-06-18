@@ -1,0 +1,442 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* Tailwind 4.1 directive */
+@import "tailwindcss";
+
+/* ============================================================
+   COLOR VARIABLES
+   ============================================================ */
+:root {
+  /* Light mode */
+  --color-bg: #ffffff;
+  --color-superlightbg: #f4f5f6;
+  --color-lightgray: #e1e2e3;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --color-border: #d5d5d5;
+  --color-superlightaccent: #f0f3e3;
+  --color-lightaccent: #dff793;
+  --color-accent: #d5f372;
+  --color-darkaccent: #7c9626;
+}
+
+/* Dark mode (via data-theme) */
+[data-theme="dark"] {
+  --color-bg: #111827;
+  --color-superlightbg: #192235;
+  --color-text: #eee;
+  --color-lightgray: #374151;
+  --color-muted: #9ca3af;
+  --color-border: #374151;
+  --color-superlightaccent: #2a3442; /* darker than your current one for contrast */
+  --color-lightaccent: #b0cc55; /* adjust if used */
+  --color-accent: #d5f372;
+  --color-darkaccent: #7c9626; /* same as light mode or darker variant */
+}
+::selection {
+  background-color: var(--color-lightaccent);
+}
+
+/* ============================================================
+   BASE TYPOGRAPHY
+   ============================================================ */
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  h1 {
+    font-size: clamp(0.5rem, 3.8vw + 1rem, 4.95rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: clamp(1.75rem, 4vw + 0.8rem, 3.5rem);
+    line-height: 1.25;
+    margin: 1.5rem 0 0.65rem;
+  }
+  h3 {
+    font-size: clamp(1.5rem, 3vw + 0.3rem, 2rem);
+    line-height: 1.3;
+    margin: 1.25rem 0 0.75rem;
+  }
+  h4 {
+    font-size: clamp(1.25rem, 2.5vw + 0.6rem, 1.75rem);
+    line-height: 1.3;
+    margin: 1rem 0 0.5rem;
+  }
+  h5 {
+    font-size: clamp(1.125rem, 2vw + 0.5rem, 1.5rem);
+    line-height: 1.35;
+    margin: 0.75rem 0 0.5rem;
+  }
+  h6 {
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+    line-height: 1.4;
+    margin: 0.5rem 0 0.25rem;
+  }
+
+  /* Paragraphs and lists */
+  p,
+  ul,
+  ol {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(1rem, 0.8vw + 0.4rem, 1.125rem);
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    color: var(--color-text);
+  }
+
+  ul,
+  ol {
+    padding-left: 1.25rem;
+  }
+
+  /* Links */
+  a {
+    color: var(--color-darkaccent);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: var(--color-accent);
+  }
+
+  /* ============================================================
+     BUTTONS
+     ============================================================ */
+
+  /* Global reset (no filter/brightness conflicts) */
+  button {
+    background-color: var(--color-accent);
+    padding: 0.55rem 0.75rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.875rem, 0.8vw + 0.4rem, 0.925rem);
+    line-height: 1.5;
+    border: none;
+    border-radius: 0.475rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  [data-theme="dark"] button {
+    color: var(--color-bg);
+  }
+
+  button:hover {
+    background-color: var(--color-lightaccent);
+  }
+
+  [data-theme="dark"] button:hover {
+    background-color: var(--color-lightaccent);
+  }
+
+  /* Primary button */
+  .button-like {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    padding: 0.55rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  [data-theme="dark"] .button-like {
+    background-color: var(--color-darkaccent);
+    color: var(--color-bg);
+  }
+
+  .button-like:hover {
+    background-color: var(--color-darkaccent);
+    color: var(--color-bg);
+  }
+
+  /* Outlined button */
+  .button-outlined {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid var(--color-border);
+    background-color: transparent;
+    color: #111827;
+    padding: 0.55rem 0.75rem;
+  }
+
+  [data-theme="dark"] .button-outlined {
+    color: var(--color-text);
+  }
+
+  .button-outlined:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #111827;
+  }
+
+  /* Minimal transparent button (used for filter buttons) */
+  .custom-button {
+    background-color: transparent;
+    color: var(--color-text);
+  }
+
+  [data-theme="dark"] .custom-button {
+    background-color: transparent;
+    color: var(--color-muted);
+  }
+
+  .custom-button:hover {
+    background-color: var(
+      --color-superlightaccent
+    ); /* changes in dark mode too */
+  }
+
+  [data-theme="dark"] .custom-button:hover {
+    background: var(--color-superlightaccent);
+    color: var(--color-accent);
+  }
+
+  .hyperlink-button {
+    font-weight: 400;
+    font-size: clamp(0.875rem, 0.8vw + 0.4rem, 0.925rem);
+    background: transparent;
+    color: var(--color-muted);
+  }
+
+  [data-theme="dark"] .hyperlink-button {
+    background: transparent;
+    color: var(--color-accent);
+  }
+
+  .hyperlink-button:hover {
+    background: transparent;
+    color: var(--color-accent);
+    transition: color 0.2s ease;
+  }
+
+  [data-theme="dark"] .hyperlink-button:hover {
+    color: var(--color-text);
+  }
+
+  .reactlinkbutton {
+    background: var(--color-accent);
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 0.65rem 1.5rem;
+    font-weight: 700;
+    font-size: clamp(0.875rem, 0.8vw + 0.4rem, 0.925rem);
+    border-radius: 0.475rem;
+  }
+  .reactlinkbutton:hover {
+    background: var(--color-lightaccent);
+    transition: background-color 0.25s ease, color 0.25s ease,
+      border-color 0.25s ease;
+    color: var(--color-text);
+  }
+
+  [data-theme="dark"] .reactlinkbutton {
+    color: var(--color-bg);
+  }
+
+  [data-theme="dark"] .reactlinkbutton:hover {
+    background: var(--color-lightaccent);
+  }
+
+  .custom-icon {
+    color: var(--color-text);
+  }
+
+  [data-theme="dark"] .custom-icon {
+    color: var(--color-text);
+  }
+
+  /* ============================================================
+     FORMS & INPUTS
+     ============================================================ */
+  .input-default {
+    width: 100%;
+    padding: 1rem 0.85rem;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(0.875rem, 0.8vw + 0.4rem, 1rem);
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: 0.375rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .input-default:hover {
+    border-color: var(--color-accent);
+  }
+  .input-default:focus {
+    border-color: var(--color-accent);
+  }
+  .input-default:disabled {
+    background-color: var(--color-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+  }
+  .input-group label {
+    font-family: "Inter", sans-serif;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  /* ============================================================
+     CHECKBOXES
+     ============================================================ */
+  .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .checkbox-wrapper input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-border);
+    background-color: #ddd;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]:checked {
+    background-color: var(--color-accent);
+    transform: scale(1.2);
+  }
+
+  .checkbox-wrapper input[type="checkbox"]:checked::after {
+    content: "✔";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.7rem;
+    color: var(--color-text);
+  }
+
+  [data-theme="dark"] .checkbox-wrapper input[type="checkbox"]:checked::after {
+    color: var(--color-bg);
+  }
+
+  [data-theme="dark"] .checkbox-wrapper input[type="checkbox"]:hover + label {
+    color: var(--color-accent);
+  }
+
+  .checkbox-wrapper label {
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]:hover + label {
+    color: var(--color-accent);
+  }
+
+  /* ============================================================
+     UTILITY CLASSES
+     ============================================================ */
+  .accent {
+    color: var(--color-accent);
+  }
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+
+  .continueWith {
+    font-size: 12px !important;
+  }
+}
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding-bottom: 0;
+  line-height: 1.2em;
+}
+
+.toast-success {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  font-weight: 400 !important;
+  border-radius: 8px;
+  padding: 12px 16px !important;
+  font-size: 0.8rem !important;
+}
+
+/* Moving progress bar */
+.toast-success .Toastify__progress-bar {
+  background: var(--color-accent) !important;
+}
+
+/* Static track underneath */
+.toast-success .Toastify__progress-bar--success {
+  background: var(--color-lightaccent) !important; /* your choice */
+}
+.toast-success svg {
+  fill: var(--color-text); /* check icon */
+  width: 16px;
+  height: 16px;
+}
+
+[data-theme="dark"] .toast-success {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+/* Smooth mobile menu animation */
+.mobile-menu {
+  overflow: hidden;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.mobile-menu.open {
+  max-height: 24rem; /* same as max-h-96 */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+
+
